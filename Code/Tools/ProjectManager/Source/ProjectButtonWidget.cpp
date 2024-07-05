@@ -369,6 +369,7 @@ namespace O3DE::ProjectManager
         { 
             AzQtComponents::ShowFileOnDesktop(m_projectInfo.m_path);
         });
+        menu->addAction(tr("Export Project..."), this, [this]() { emit ExportProject(m_projectInfo.m_path); });
 
 #if AZ_TRAIT_PROJECT_MANAGER_CREATE_DESKTOP_SHORTCUT
         menu->addAction(tr("Create Editor desktop shortcut..."), this, [this]()

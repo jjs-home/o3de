@@ -29,13 +29,15 @@ namespace O3DE::ProjectManager
         GemRepos,
         GemsGemRepos,
         CreateGem,
-        EditGem
+        EditGem,
+        ExportProject
     };
 
     static QHash<QString, ProjectManagerScreen> s_ProjectManagerStringNames = {
         { "Empty", ProjectManagerScreen::Empty},
-        { "CreateProject", ProjectManagerScreen::CreateProject},
-        { "NewProjectSettings", ProjectManagerScreen::NewProjectSettings},
+        { "CreateProject", ProjectManagerScreen::CreateProject },
+        { "ExportProject", ProjectManagerScreen::ExportProject },
+        { "NewProjectSettings", ProjectManagerScreen::NewProjectSettings },
         { "GemCatalog", ProjectManagerScreen::GemCatalog},
         { "ProjectGemCatalog", ProjectManagerScreen::ProjectGemCatalog},
         { "Projects", ProjectManagerScreen::Projects},

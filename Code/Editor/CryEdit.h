@@ -204,6 +204,7 @@ public:
     void OnPreferences();
     void OnOpenProjectManagerSettings();
     void OnOpenProjectManagerNew();
+    void OnOpenProjectManagerExport();
     void OnOpenProjectManager();
     void OnRedo();
     void OnUpdateRedo(QAction* action);

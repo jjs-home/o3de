@@ -189,6 +189,7 @@ namespace O3DE::ProjectManager
 
         connect(projectButton, &ProjectButton::OpenProject, this, &ProjectsScreen::HandleOpenProject);
         connect(projectButton, &ProjectButton::EditProject, this, &ProjectsScreen::HandleEditProject);
+        connect(projectButton, &ProjectButton::ExportProject, this, &ProjectsScreen::HandleExportProject);
         connect(projectButton, &ProjectButton::EditProjectGems, this, &ProjectsScreen::HandleEditProjectGems);
         connect(projectButton, &ProjectButton::CopyProject, this, &ProjectsScreen::HandleCopyProject);
         connect(projectButton, &ProjectButton::RemoveProject, this, &ProjectsScreen::HandleRemoveProject);
@@ -552,6 +553,16 @@ namespace O3DE::ProjectManager
         }
 
     }
+
+    void ProjectsScreen::HandleExportProject(const QString& projectPath)
+    {
+        if (!WarnIfInBuildQueue(projectPath))
+        {
+            emit NotifyCurrentProject(projectPath);
+            emit ChangeScreenRequest(ProjectManagerScreen::ExportProject);
+        }
+    }
+
     void ProjectsScreen::HandleEditProject(const QString& projectPath)
     {
         if (!WarnIfInBuildQueue(projectPath))

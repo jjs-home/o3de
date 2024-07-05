@@ -42,6 +42,7 @@ namespace O3DE::ProjectManager
             ProjectManagerScreen::Engine,
             ProjectManagerScreen::CreateProject,
             ProjectManagerScreen::UpdateProject,
+            ProjectManagerScreen::ExportProject,
             ProjectManagerScreen::GemsGemRepos
         };
         screensCtrl->BuildScreens(screenEnums);

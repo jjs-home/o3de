@@ -2458,6 +2458,11 @@ void CCryEditApp::OnOpenProjectManagerNew()
     OpenProjectManager("CreateProject");
 }
 
+void CCryEditApp::OnOpenProjectManagerExport()
+{
+    OpenProjectManager("ExportProject");
+}
+
 void CCryEditApp::OnOpenProjectManager()
 {
     OpenProjectManager("Projects");

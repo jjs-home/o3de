@@ -534,6 +534,28 @@ void EditorActionsHandler::OnActionRegistrationHook()
         m_actionManagerInterface->AssignModeToAction(AzToolsFramework::DefaultActionContextModeIdentifier, actionIdentifier);
     }
 
+    // Export Project
+    {
+        constexpr AZStd::string_view actionIdentifier = "o3de.action.project.export";
+        AzToolsFramework::ActionProperties actionProperties;
+        actionProperties.m_name = "Export Project...";
+        actionProperties.m_description = "Export a project in the Project Manager.";
+        actionProperties.m_category = "Project";
+        actionProperties.m_menuVisibility = AzToolsFramework::ActionVisibility::AlwaysShow;
+
+        m_actionManagerInterface->RegisterAction(
+            EditorIdentifiers::MainWindowActionContextIdentifier,
+            actionIdentifier,
+            actionProperties,
+            [cryEdit = m_cryEditApp]
+            {
+                cryEdit->OnOpenProjectManagerExport();
+            });
+
+        // This action is only accessible outside of Component Modes
+        m_actionManagerInterface->AssignModeToAction(AzToolsFramework::DefaultActionContextModeIdentifier, actionIdentifier);
+    }
+
     // Show Log File
     {
         constexpr AZStd::string_view actionIdentifier = "o3de.action.file.showLog";
@@ -1844,10 +1866,11 @@ void EditorActionsHandler::OnMenuBindingHook()
         m_menuManagerInterface->AddSeparatorToMenu(EditorIdentifiers::FileMenuIdentifier, 1100);
         m_menuManagerInterface->AddActionToMenu(EditorIdentifiers::FileMenuIdentifier, "o3de.action.project.new", 1200);
         m_menuManagerInterface->AddActionToMenu(EditorIdentifiers::FileMenuIdentifier, "o3de.action.project.open", 1300);
-        m_menuManagerInterface->AddSeparatorToMenu(EditorIdentifiers::FileMenuIdentifier, 1400);
-        m_menuManagerInterface->AddActionToMenu(EditorIdentifiers::FileMenuIdentifier, "o3de.action.file.showLog", 1500);
-        m_menuManagerInterface->AddSeparatorToMenu(EditorIdentifiers::FileMenuIdentifier, 1600);
-        m_menuManagerInterface->AddActionToMenu(EditorIdentifiers::FileMenuIdentifier, "o3de.action.editor.exit", 1700);
+        m_menuManagerInterface->AddActionToMenu(EditorIdentifiers::FileMenuIdentifier, "o3de.action.project.export", 1400);
+        m_menuManagerInterface->AddSeparatorToMenu(EditorIdentifiers::FileMenuIdentifier, 1500);
+        m_menuManagerInterface->AddActionToMenu(EditorIdentifiers::FileMenuIdentifier, "o3de.action.file.showLog", 1600);
+        m_menuManagerInterface->AddSeparatorToMenu(EditorIdentifiers::FileMenuIdentifier, 1700);
+        m_menuManagerInterface->AddActionToMenu(EditorIdentifiers::FileMenuIdentifier, "o3de.action.editor.exit", 1800);
     }
 
     // Edit

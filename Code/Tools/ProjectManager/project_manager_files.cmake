@@ -65,6 +65,8 @@ set(FILES
     Source/NewProjectSettingsScreen.cpp
     Source/CreateProjectCtrl.h
     Source/CreateProjectCtrl.cpp
+    Source/ExportProjectCtrl.h
+    Source/ExportProjectCtrl.cpp
     Source/UpdateProjectCtrl.h
     Source/UpdateProjectCtrl.cpp
     Source/ProjectsScreen.h

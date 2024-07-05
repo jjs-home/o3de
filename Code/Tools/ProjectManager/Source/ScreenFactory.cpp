@@ -9,6 +9,7 @@
 
 #include <CreateProjectCtrl.h>
 #include <UpdateProjectCtrl.h>
+#include <ExportProjectCtrl.h>
 #include <NewProjectSettingsScreen.h>
 #include <GemCatalog/GemCatalogScreen.h>
 #include <ProjectsScreen.h>
@@ -44,6 +45,9 @@ namespace O3DE::ProjectManager
             break;
         case (ProjectManagerScreen::Projects):
             newScreen = new ProjectsScreen(downloadController, parent);
+            break;
+        case (ProjectManagerScreen::ExportProject):
+            newScreen = new ExportProjectCtrl(downloadController, parent);
             break;
         case (ProjectManagerScreen::UpdateProject):
             newScreen = new UpdateProjectCtrl(downloadController, parent);
