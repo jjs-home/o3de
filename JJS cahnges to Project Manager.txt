@@ -1,0 +1,20 @@
+Added new source files
+	Tools\ProjectManager\Source\ExportProjectCtrl.cpp
+	Tools\ProjectManager\Source\ExportProjectCtrl.h
+	This creates the new Export page in the Project Manager
+Added the new files into 
+	Tools/ProjectManager/project_manager_files.cmake
+Made changes to
+	Editor\CryEdit.cpp
+	Editor\CryEdit.h
+	Editor\Core\EditorActionsHandler.cpp
+	This adds a new "Export Project..." to the Editor File Menu
+Made changes to
+	Tools\ProjectManager\Source\ProjectButtonWidget.cpp
+	Tools\ProjectManager\Source\ProjectButtonWidget.h
+	Tools\ProjectManager\Source\ProjectManagerWindow.cpp
+	Tools\ProjectManager\Source\ProjectsScreen.cpp
+	Tools\ProjectManager\Source\ProjectsScreen.h
+	Tools\ProjectManager\Source\ScreenDefs.h
+	Tools\ProjectManager\Source\ScreenFactory.cpp
+	This adds the new Export page to the Project Manager and adds an "Export Project..." into the drop down menu for the project_manager_files 
